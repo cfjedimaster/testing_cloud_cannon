@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">    
+    <title>{% if renderData.title %}{{ renderData.title | titlecase }}{% elsif title %}{{ title }}{% else %}{{ site.title }}{% endif %}</title> 
+    <meta name="description" content="{% if description %}{{ description | my_xml_escape }}{% else %}{{ site.description | my_xml_escape }}{% endif %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="{% if renderData.title %}{{ renderData.title | my_xml_escape }}{% elsif title %}{{ title | my_xml_escape}}{% else %}{{ site.title }}{% endif %}" />
+    <meta name="twitter:creator" content="@raymondcamden" />    
+    <meta name="twitter:site" content="@raymondcamden" />    
+    <meta name="og:title" content="{% if renderData.title %}{{ renderData.title | my_xml_escape }}{% elsif title %}{{ title | my_xml_escape }}{% else %}{{ site.title }}{% endif %}" />
+    <meta name="og:url" content="{{ page.url | prepend: site.url }}" />
+    <meta name="og:type" content="blog" />
+
+    {% if description %}
+    <meta name="twitter:description" content="{{description | my_xml_escape }}" />
+    <meta name="og:description" content="{{ description | my_xml_escape }}" />
+    {% else %}
+    <meta name="twitter:description" content="{{site.description}}" />
+    <meta name="og:description" content="{{ site.description }}" />
+    {% endif %}
+
+    {% if banner_image %}
+    <meta name="twitter:image" content="{{ "https://static.raymondcamden.com" | append: banner_image }}" />
+    <meta name="og:image" content="{{ "https://static.raymondcamden.com" | append: banner_image }}" />
+    {% endif %}
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" href="{{ "/favicon.ico" | prepend: site.url }}">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/prism.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
+    <link rel="canonical" href="{{ page.url | replace:'/index.html','/' | prepend: site.url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }} Feed" href="{{ "/feed.xml" | prepend: site.url }}">
+    <link rel="webmention" href="https://webmention.io/www.raymondcamden.com/webmention" />
+    <link rel="pingback" href="https://webmention.io/www.raymondcamden.com/xmlrpc" />
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T5V3C8M5RY"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-T5V3C8M5RY');
+    </script>
+    <script src="https://www.ezojs.com/ezoic/sa.min.js"></script>
+</head>
+<body>
+    <nav id="top" class="site-navigation">
+        <div class="inner">
+            <button id="menu-toggle" aria-expanded="false">Menu</button>
+            <div class="nav-menu">
+                <ul class="menu">
+                {% for link in site.navigation %}
+                  {% assign current = nil %}
+                  {% if page.url == link.url %}
+                    {% assign current = 'nav-current' %}
+                  {% endif %}
+                  <li class="{{ current }}">
+                    <a class="{{ current }}" href="{{ link.url }}">{{ link.text }}</a>
+                  </li>
+                {% endfor %}
+                </ul>        
+            </div><!-- .nav-menu -->
+            <a class="subscribe-button fa-feed square fill-horizontal" href="/feed.xml"><span class="screen-reader-text">Subscribe</span></a>
+        </div><!-- .inner -->
+    </nav><!-- .site-navigation -->
+    <header class="site-header">
+        <div class="inner">
+            <h1 class="site-title"><a class="logo-text" href="/">{{site.title}}</a></h1>
+            <p class="site-description">{{site.tagline}}</p>
+        </div><!-- .inner -->
+    </header>
+    {{content}}
+    {% include 'footer' %}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+    <script type="text/javascript" src="/js/plugins.js"></script>
+    <script type="text/javascript" src="/js/custom.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/lazysizes.min.js" async=""></script>
+</body>
+</html>

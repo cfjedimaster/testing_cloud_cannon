@@ -1,0 +1,36 @@
+{
+  "name": "raymondcamden2020",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eleventy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cfjedimaster/raymondcamden2020.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cfjedimaster/raymondcamden2020/issues"
+  },
+  "homepage": "https://github.com/cfjedimaster/raymondcamden2020#readme",
+  "dependencies": {
+    "-": "^0.0.1",
+    "@11ty/eleventy": "^2.0.0",
+    "@11ty/eleventy-plugin-directory-output": "^1.0.1",
+    "algolia-indexing": "^1.0.1",
+    "algoliasearch": "^4.2.0",
+    "axios": "^1.1.3",
+    "eleventy-plugin-pdfembed": "^1.0.1",
+    "eleventy-xml-plugin": "^0.1.0",
+    "g": "^2.0.1",
+    "html-minifier": "^4.0.0",
+    "netlify-cli": "^9.16.7",
+    "node-fetch": "^2.6.0",
+    "rss-parser": "^3.12.0",
+    "sendgrid": "^5.2.3"
+  }
+}

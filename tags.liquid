@@ -1,0 +1,14 @@
+---
+pagination:
+    data: collections
+    size: 1
+    alias: tag
+    filter:
+        - all
+        - posts
+        - categories
+permalink: "tags/{{ tag | myEscape }}/"
+layout: tag
+eleventyComputed:
+    title: "{{ tag | titlecase}}"
+---
