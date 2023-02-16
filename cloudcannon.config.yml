@@ -1,0 +1,8 @@
+collections_config:
+  posts:
+    path: _posts
+  pages:
+    path: ''
+    filter: strict
+
+collections_config_override: true
