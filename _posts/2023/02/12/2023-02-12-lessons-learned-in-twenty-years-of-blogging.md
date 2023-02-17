@@ -5,7 +5,7 @@ date: 2023-02-12T18:00:00Z
 categories:
   - misc
 tags:
-  - ''
+  - 'misc'
 banner_image: /images/banners/welcome2018.jpg
 permalink: /2023/02/12/lessons-learned-in-twenty-years-of-blogging
 description: Twenty years of blogging is a long time. Here's some of what I've learned.
